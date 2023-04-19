@@ -4,51 +4,52 @@ let slideElements = document.getElementsByClassName("slide");
 const btnext = document.getElementById("buttonext");
 const btnback = document.getElementById("buttoback");
 
-let currentslide = 1;
+let currentslide = 0;
 
 
-const picalbum = ['./img/01.webp','./img/02.webp','./img/03.webp','./img/04.webp','./img/05.webp']
-
+const picalbum = ['./img/01.webp', './img/02.webp', './img/03.webp', './img/04.webp', './img/05.webp']
+let slideArray = []
 let Generalpic;
 
-for (let c=0; c < picalbum.length; c++) {
+for (let c = 0; c < picalbum.length; c++) {
 
     const pics = picalbum[c]
     Generalpic = document.createElement("img")
     Generalpic.src = pics;
-    Generalpic.className = "slide","hidden";
+    Generalpic.classList.add("slide");
     slideElement.append(Generalpic);
+    if (c > 0) {
+        Generalpic.classList.add("hidden");
+    }
 }
+slideArray = document.querySelectorAll(".slide")
+console.log(slideArray)
 
-picalbum[0].classList.remove("hidden")
+btnext.addEventListener("click", function() {
 
-btnext.addEventListener("click", function () {
+    for (let c = 0; c < slideArray.length; c++) {
+        const slide = slideArray[c];
 
-    if (currentslide < 3);
-
-    for (let c = 0; c < slideEls.length; c++) {
-
-        const slide = slideEls[c];
-
-        if (c == currentslide) {
-            slide.className = "hidden";
+        if (c == currentslide+1) {
+            slide.classList.remove("hidden");
         }
         else {
-            slide.classlist.add("hidden");
+            slide.classList.add("hidden");
         }
     }
     currentslide++;
 })
+btnback.addEventListener("click", function() {
 
+    for (let c = 0; c < slideArray.length; c++) {
 
-btnback.addEventListener("click", function () {
-    for (let c = 0; c < slideEls.length; c++) {
-        const slide = slideEls[c];
-        if (c == currentslide - 1) {
-            slide.classlist.remove("hidden")
+        const slide = slideArray[c];
+
+        if (c == currentslide-1) {
+            slide.classList.remove("hidden");
         }
         else {
-            slide.classlist.add("hidden")
+            slide.classList.add("hidden");
         }
     }
     currentslide--;
