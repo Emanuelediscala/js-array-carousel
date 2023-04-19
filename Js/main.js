@@ -3,23 +3,24 @@ let slideElement = document.getElementById("slider");
 let slideElements = document.getElementsByClassName("slide");
 const btnext = document.getElementById("buttonext");
 const btnback = document.getElementById("buttoback");
+
 let currentslide = 1;
 
 
-let picalbum = []
+const picalbum = ['./img/01.webp','./img/02.webp','./img/03.webp','./img/04.webp','./img/05.webp']
 
-picalbum.push('./img/01.webp')
-picalbum.push('./img/02.webp')
-picalbum.push('./img/03.webp')
-picalbum.push('./img/04.webp')
-picalbum.push('./img/05.webp')
+let Generalpic;
 
+for (let c=0; c < picalbum.length; c++) {
 
-for (let c=0; c < picalbum.length; c++)
+    const pics = picalbum[c]
+    Generalpic = document.createElement("img")
+    Generalpic.src = pics;
+    Generalpic.className = "slide","hidden";
+    slideElement.append(Generalpic);
+}
 
-    picalbum = document.createElement("img");
-    Firstpic = picalbum [0]
-
+picalbum[0].classList.remove("hidden")
 
 btnext.addEventListener("click", function () {
 
