@@ -26,7 +26,6 @@ slideArray = document.querySelectorAll(".slide")
 console.log(slideArray)
 
 btnext.addEventListener("click", function() {
-
     for (let c = 0; c < slideArray.length; c++) {
         const slide = slideArray[c];
 
@@ -38,6 +37,7 @@ btnext.addEventListener("click", function() {
         }
     }
     currentslide++;
+
 })
 btnback.addEventListener("click", function() {
 
