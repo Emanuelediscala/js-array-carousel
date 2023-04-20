@@ -29,23 +29,24 @@ console.log(slideArray)
 
 btnback.addEventListener("click", function() {
 
+    currentslide--;
+    if (currentslide < 0) {
+        currentslide = slideArray.length-1;
+    }
+
     for (let c = 0; c < slideArray.length; c++) {
 
         const slide = slideArray[c];
 
-        if (c == currentslide-1) {
+        if (c == currentslide) {
             slide.classList.remove("hidden");
         }
         else {
             slide.classList.add("hidden");
         }
     }
-    currentslide--;
-    if (currentslide == slideArray.length-5) {
-        currentslide=5;
-        slide.classList.remove("hidden");
-        console.log(currentslide)
-    }
+    
+    
 })
 btnext.addEventListener("click", function() {
 
